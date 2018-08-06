@@ -4,46 +4,102 @@ import styled from 'styled-components'
 
 import SEO from '../components/SEO'
 import config from '../../data/SiteConfig'
-import CtaButton from '../components/CtaButton'
+// import CtaButton from '../components/CtaButton'
 import Navigation from '../components/Layout/Navigation'
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      offsetTop: 250
+    }
+  }
+  componentDidMount() {
+    console.log("zxy", document.body.offsetWidth)
+    if (document.body.offsetWidth >= 1440) {
+      this.setState({
+        offsetTop: 250
+      })
+    } else if(document.body.offsetWidth < 1400 && document.body.offsetWidth >= 1200){
+      this.setState({
+        offsetTop: 200
+      })
+    } else if(document.body.offsetWidth < 1200 && document.body.offsetWidth >= 1040){
+      this.setState({
+        offsetTop: 150
+      })
+    } else {
+      this.setState({
+        offsetTop: 150
+      })
+    }
+  }
   render() {
     const allSEOMarkdown = this.props.data.allMarkdown.edges
 
     return (
-      <div className="index-container">
-        <Helmet title={config.siteTitle} />
-        <SEO postEdges={allSEOMarkdown} />
-        <main>
+      <div>
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            minWidth: 1040,
+            background: 'url(/logos/bg.svg)',
+            backgroundposition: 'center',
+            backgroundSize: 'cover',
+          }}
+        />
+        <div
+          className="index-container"
+          style={{ minWidth: 1040, position: 'relative' }}
+        >
+          <Helmet title={config.siteTitle} />
+          <SEO postEdges={allSEOMarkdown} />
+
           <IndexHeadContainer>
             <Navigation />
             <Hero>
-              <img src={config.siteLogo} width="150px" alt="" />
-              <h1>{config.siteTitle}</h1>
-              <h4>{config.siteDescription}</h4>
+              <div
+                style={{
+                  margin: '0 auto',
+                  marginTop: this.state.offsetTop,
+                  border: '1px solid #ccc',
+                  width: 100,
+                  height: 100,
+                  borderRadius: '50%',
+                  overflow: 'hidden'
+                }}
+              >
+                <img src={config.userAvatar} width="120px" alt="" />
+              </div>
+              <h1
+                style={{
+                  color: '#fff',
+                  fontSize: 18,
+                  padding: 0,
+                  margin: 0,
+                  marginTop: 30
+                }}
+              >
+                {config.siteTitle}
+              </h1>
+              <h4
+                style={{
+                  color: '#fff',
+                  fontSize: 16,
+                  padding: 0,
+                  margin: 0,
+                  marginTop: 30
+                }}
+              >
+                {config.siteDescription}
+              </h4>
             </Hero>
           </IndexHeadContainer>
-          <BodyContainer>
-            <h2>A Gatsby Template for Content</h2>
-            <p>
-              Made for modern documentation sites. Table of Contents
-              automatically generated from markdown files.{' '}
-            </p>
-            <CtaButton to={'/lesson-one'}>See Your First Post</CtaButton>
-
-            <div className="contributors">
-              <p>
-                Created by Eric Windmill.{' '}
-                <a href="https:twitter.com/ericwindmill">
-                  You should follow him on Twitter.
-                </a>{' '}
-                Also, <a href="https://github.com/Levino">Levin Keller</a> for
-                making it better than I could{"'"}ve alone.
-              </p>
-            </div>
-          </BodyContainer>
-        </main>
+        </div>
       </div>
     )
   }
@@ -52,13 +108,13 @@ class Index extends React.Component {
 export default Index
 
 const IndexHeadContainer = styled.div`
-  background: ${props => props.theme.brand};
   padding: ${props => props.theme.sitePadding};
   text-align: center;
 `
 
 const Hero = styled.div`
   padding: 50px 0;
+  margin-top: ${props => props.offsetTop}
   & > h1 {
     font-weight: 600;
   }

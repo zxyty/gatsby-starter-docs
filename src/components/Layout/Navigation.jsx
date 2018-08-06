@@ -7,13 +7,12 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background: ${props => props.theme.brand};
 
   .nav-link {
     font-size: 1.6rem;
     margin-right: 10px;
     font-weight: 200;
-    color: black;
+    color: #fff;
   }
 
   @media screen and (max-width: 600px) {
@@ -38,15 +37,15 @@ class Navigation extends React.Component {
         <section>
           <Link className="nav-link" to="/">
             {' '}
-            HOME{' '}
+            主页{' '}
           </Link>
           <Link className="nav-link" to="/lesson-one">
             {' '}
-            DOCS{' '}
+            博客{' '}
           </Link>
           <Link className="nav-link" to="/about">
             {' '}
-            ABOUT{' '}
+            关于{' '}
           </Link>
         </section>
         <span>
