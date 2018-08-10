@@ -15,7 +15,6 @@ class Index extends React.Component {
     }
   }
   componentDidMount() {
-    console.log("zxy", document.body.offsetWidth)
     if (document.body.offsetWidth >= 1440) {
       this.setState({
         offsetTop: 250

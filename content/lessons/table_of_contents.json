@@ -2,54 +2,33 @@
   "id": "table-of-contents",
   "chapters": [
     {
-      "title": "1. Main Chapter",
+      "title": "前言",
       "chapters": [
         {
-          "title": "1.1 Subchapter",
+          "title": "感谢",
           "entries": [
             {
-              "entry": "./lesson_one.md"
-            }
-          ],
-          "chapters": [
-            {
-              "title": "1.1.1 Sub-subchapter",
-              "entries": [
-                {
-                  "entry": "./lesson_two.md"
-                },
-                {
-                  "entry": "./lesson_three.md"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "1.2 Subchapter",
-          "entries": [
-            {
-              "entry": "./lesson_four.md"
+              "entry": "./thanks.md"
             }
           ]
         }
       ]
     },
     {
-      "title": "2. Main Chapter",
+      "title": "Code💰",
       "chapters": [
         {
-          "title": "2.1 Subchapter",
+          "title": "前端",
           "entries": [
             {
-              "entry": "./lesson_five.md"
+              "entry": "./前端入门介绍.md"
             }
           ]
         }
       ]
     },
     {
-      "title": "3. Main Chapter",
+      "title": "Book📖",
       "entries": [
         {
           "entry": "./lesson_six.md"

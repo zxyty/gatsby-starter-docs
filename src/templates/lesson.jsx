@@ -145,22 +145,6 @@ export const pageQuery = graphql`
               }
             }
           }
-          chapters {
-            title
-            entries {
-              entry {
-                id
-                childMarkdownRemark {
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }

@@ -39,7 +39,7 @@ class Navigation extends React.Component {
             {' '}
             主页{' '}
           </Link>
-          <Link className="nav-link" to="/lesson-one">
+          <Link className="nav-link" to="/感谢信">
             {' '}
             博客{' '}
           </Link>
